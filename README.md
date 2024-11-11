@@ -1,2 +1,2 @@
 # MR
-Mendelian randomization
+We used gut microbiota as exposure variables,and their summary statistics were obtained from the MiBioGen study(https://mibiogen.gcc.rug.nl/).As outcome variables,we used ASD data from the Psychiatric Genomics Consortium Genome-Wide Association Study(https://pgc.unc.edu/for-researchers/download-results/). We then we performed data harmonization and used the inverse variance weighted (IVW) method, MR-Egger, simple mode,weighted model, and weighted median to perfome Mendelian randomization (MR) to determine a causal relationship between the gut microbiota and ASD. We also used MR Egger intercept test, Mendelian Randomization Pleiotropy RESidual Sum and Outlier (MR-PRESSO),and leaveone-out analysis to identify heterogeneity and pleiotropy.
