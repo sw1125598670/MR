@@ -15,9 +15,7 @@ outcome_exp_dat_origin<-data.frame(
     pval_col = outcomeINFO$P
 )
 
-
 outcome_exp_dat<-get_eaf_from_1000G(outcome_exp_dat_origin,"1kg.v3", type = "outcome")
-
 outcome_exp_dat <- format_data(
  outcome_exp_dat_origin,
  type='outcome',
@@ -138,6 +136,4 @@ print(p3)
 p4 <- mr_funnel_plot(res_single)
 print(p4)
 dev.off()
-
-
 }
