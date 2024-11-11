@@ -83,6 +83,20 @@ dat <- harmonise_data(
     exposure_dat = exposure_exp_dat, 
     outcome_dat = outcome_exp_dat)
     
+## mpresso out ----
+res_mpresso <- try(run_mr_presso(dat, NbDistribution = 1000, SignifThreshold = 0.05))
+res_mpresso_fn=paste(MiBioID,"mr_res_mpresso.txt",sep="_")
+res_mpresso_fp=paste("results",res_mpresso_fn ,sep = "/")
+write.csv(res_mpresso, file = res_mpresso_fp, quote = TRUE)    
+    
+## leave one out ----
+res_loo <- mr_leaveoneout(dat)
+res_loo_fn=paste(MiBioID,"mr_res_loo.csv",sep="_")
+res_loo_fp=paste("results",res_loo_fn ,sep = "/")
+write.csv(res_loo, file = res_loo_fp, quote = TRUE)
+
+
+    
 ## MR ----
 res <- mr(dat)
 res_fn=paste(MiBioID,"mr_res.csv",sep="_")
@@ -108,17 +122,6 @@ res_single_fn=paste(MiBioID,"mr_res_single_snp.csv",sep="_")
 res_single_fp=paste("results",res_single_fn ,sep = "/")
 write.csv(res_single, file = res_single_fp, quote = TRUE)
 
-## leave one out ----
-res_loo <- mr_leaveoneout(dat)
-res_loo_fn=paste(MiBioID,"mr_res_loo.csv",sep="_")
-res_loo_fp=paste("results",res_loo_fn ,sep = "/")
-write.csv(res_loo, file = res_loo_fp, quote = TRUE)
-
-## mpresso out ----
-res_mpresso <- try(run_mr_presso(dat, NbDistribution = 1000, SignifThreshold = 0.05))
-res_mpresso_fn=paste(MiBioID,"mr_res_mpresso.txt",sep="_")
-res_mpresso_fp=paste("results",res_mpresso_fn ,sep = "/")
-write.csv(res_mpresso, file = res_mpresso_fp, quote = TRUE)
 
 pdf(paste("results",p_fn,sep="/"))
 ### mr_scatter_plot ----
