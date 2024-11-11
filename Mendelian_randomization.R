@@ -73,7 +73,7 @@ exposure_exp_dat <- format_data(
 exposure_exp_dat=exposure_exp_dat[exposure_exp_dat$pval.exposure<1e-5,]
 
 exposure_exp_dat=clump_data(exposure_exp_dat,clump_r2=0.01,pop = "EUR",
-                            plink_bin="~/.local/bin/plink",
+                            plink_bin="plink",
                             bfile="1kg.v3/EUR")
 
 exposure_exp_dat=get_f(exposure_exp_dat,F_value=10)
